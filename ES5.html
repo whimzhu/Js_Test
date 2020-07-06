@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // indexOf():返回要查找数值在数组中的索引值，从前往后查找，找不到返回-1
+    // var a = [2, 9, 5, 44, 88, 9, 32];
+    // console.log(a.indexOf(2)); // 0
+    // console.log(a.indexOf(7)); // -1
+    // console.log(a.lastIndexOf(2)); //0
+    // console.log(a.lastIndexOf(7)); //-1
+    // console.log(a.lastIndexOf(9, 3)); //1
+    // console.log(a.lastIndexOf(9, 5)); //5
+
+    //forEach(fn)：用于替代for循环，比for循环简便，但不能随意退出，不能使用break。此方法没有返回值。
+    const items = ["item1", "item2", "item3"];
+    const copy = [];
+    items.forEach(function(item) {
+      copy.push(item);
+    });
+    console.log(copy); //["item1", "item2", "item3"]
+
+    //map(fn):返回的是一个数量相等的新数组，返回的内容是什么取决于在fn中返回的值。
+    var numbers = [1, 5, 10, 15];
+    var doubles = numbers.map(function(x) {
+      return x * 2;
+    });
+    console.log(doubles); // [2, 10, 20, 30]
+
+    //filter(fn): 得到执行fn后返回时true对应的数组元素组成的数组，利用这个方法对数组元素进行筛选。
+    var words = [
+      "spray",
+      "limit",
+      "elite",
+      "exuberant",
+      "destruction",
+      "present",
+      "happy"
+    ];
+
+    var longWords = words.filter(function(word) {
+      return word.length > 6;
+    });
+
+    console.log(longWords); //["exuberant", "destruction", "present"]
+
+    //some(fn):如果该函数对任何一项返回ture,则返回ture。-->用于判断数组是否存在某个属性值/对象等（indexOf有局限性）
+    var aa = [2, 5, 8, 4];
+    var bb = [11, 3, 6, 8];
+    var cc = aa.some(function(item) {
+      return item > 10;
+    });
+    var dd = bb.some(function(item) {
+      return item > 10;
+    });
+    console.log(cc); //false
+    console.log(dd); //true
+
+    //reduce 相当于一个累加器的概念,通过遍历数组，获取上一个值与当前值，通过回调函数处理，返回一个新值。而该值将会当做下一次执行的prev返回
+    const arr = [1, 2, 3, 4, 5];
+    // 累加器
+    let sum = arr.reduce((prev, cur) => {
+      return prev + cur;
+    }, 0);
+    console.log("arr", sum); // 15
+
+    const arr1 = [1, 9, 3, 4, 5];
+    // 数组求最大值
+    let max = arr1.reduce((prev, cur) => {
+      return Math.max(prev, cur);
+    }, 0);
+    console.log("arr1", max); // 9
+
+    //every(fn):执行函数时，所有元素都返回ture,则返回ture。
+    var aa = [2, 5, 8, 4];
+    var bb = [11, 3, 6, 8];
+    var cc = aa.every(function(item) {
+      return item < 10;
+    });
+    var dd = bb.every(function(item) {
+      return item < 10;
+    });
+    console.log(cc); //true
+    console.log(dd); //false
+  </script>
+</html>

@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 14px;
+    background-color: green;
+}
+
+li{
+    list-style-type: none;
+}
+
+.flex{
+    display: flex;
+}
+
+.border_radius{
+    border-radius: 5px;
+}

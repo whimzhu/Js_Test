@@ -1,0 +1,31 @@
+html {
+  font-size: 14px;
+  color: blue;
+}
+
+.a, .c {
+  padding: 10px;
+}
+.a:hover, .c:hover {
+  background-color: green;
+}
+.d {
+  height: 5.3333333333rem;
+}
+
+.b {
+  border: 1px solid #000;
+  margin: 10px;
+}
+
+.c {
+  color: red;
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 0;
+  width: 20px;
+  height: 2.6666666667rem;
+}
+
+/*# sourceMappingURL=scss.css.map */

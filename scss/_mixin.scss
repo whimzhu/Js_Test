@@ -1,0 +1,7 @@
+@mixin border-max {
+    border: 1px solid #000;
+}
+
+@mixin set-width($width:50px) {
+    width: $width;
+}

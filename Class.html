@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+let methodName = 'sayName';
+class Person{
+    constructor(){
+
+    }
+
+    get age(){
+        alert(30)
+    }
+
+    set age(num){
+        alert(num)
+    }
+
+    [methodName](){
+        alert("我叫萧敬腾")
+    }
+
+    static hasCar(){
+        alert(true)
+    }
+}
+
+let P = new Person();
+
+// P.age = 32
+
+// P.sayName();
+
+// Person.hasCar();
+</script>
+</html>

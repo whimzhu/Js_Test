@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <!--模板语法(内部不能写if else if-else用三元运算符代替)-->
+      <!--去data中找到msg的值展示在页面-->
+      <h3>{{ msg }}</h3>
+      <!--直接运算得到结果展示在页面上-->
+      <h3>{{ 1+2+3 }}</h3>
+      <!--字符,对象都能直接被渲染到页面-->
+      <h3>{{ {name: 'xiaohua'} }}</h3>
+      <!--取出person对象的属性name值-->
+      <h3>{{ person.name }}</h3>
+      <!--三元运算符计算-->
+      <h3>{{ 1>2?'对':'错' }}</h3>
+      <!--翻转字符串,得到nohtyp evol,证明{{}}中可以使用js语法-->
+      <h3>{{ str1.split('').reverse().join('') }}</h3>
+    </div>
+    <hr />
+    <div id="box1">
+      <!--执行add方法并将值展示在页面-->
+      {{ add(1, 2) }}
+      <!--给button按钮绑定click事件,方法是changeShow-->
+      <button v-on:click="changeShow">点击显示隐藏</button>
+      <!--isShow为true就显示,为false就隐藏-->
+      <div class="t1" v-show="isShow">kankan</div>
+
+      <!--官网例子,如果随机数大于0.5就显示Now you see me, 否则就显示Now you don't-->
+      <div v-if="Math.random() > 0.5">
+        Now you see me
+      </div>
+      <div v-else>
+        Now you don't
+      </div>
+    </div>
+    <hr />
+    <div id="box3">
+      <!--先判断返回的状态是否正确,如果正确才显示整个ul列表-->
+      <ul v-if="data.status == 'ok'">
+        <!--循环用户列表,index表示索引,从0开始,一定要绑定key,有id就需要用id绑定,没有则用index,
+            绑定key是为了避免修改数据后vue自动内部遍历,绑定之后修改了哪个数据就只修改哪一个,避免性能损耗,v-for的优先级最高-->
+        <li v-for="(item, index) in data.user_list" :key="item.id">
+          <h3>
+            {{ index }} -- {{ item.id }} -- {{ item.name }} -- {{ item.age }}
+          </h3>
+        </li>
+      </ul>
+      <!--for循环遍及对象, 注意顺序,值在第一个-->
+      <div v-for="(value, name, index) in object">
+        {{ index }} -- {{ name }}: {{ value }}
+      </div>
+    </div>
+    <div id="box4">
+      <p>{{name}}</p>
+      <my-father :myname.sync="name"></my-father>
+    </div>
+    <template id="father">
+      <div>
+        <p>{{myname}}</p>
+        <button @click='changeSon'>改变子组件的数据</button>
+        <!-- <my-son :myname.sync="name"></my-son> -->
+      </div>
+    </template>
+    <!-- <template id="son">
+        <div>
+            <p>{{myname}}</p>
+            <button @click='changeFather'>改变父组件的数据</button>
+        </div>
+    </template> -->
+  </body>
+  <script>
+    // 实例化Vue
+    new Vue({
+      el: "#box", // 绑定id为box的标签,固定写法el
+      data: {
+        msg: "测试",
+        str1: "love python",
+        person: {
+          name: "liu",
+          age: 18
+        }
+      }
+    });
+
+    new Vue({
+      el: "#box1",
+      data() {
+        return {
+          isShow: true
+        };
+      },
+      // 方法都在这里面定义
+      methods: {
+        add(x, y) {
+          return x + y;
+        },
+        changeShow() {
+          // 点击按钮就取反然后赋值,所以点击就是一直显示隐藏
+          this.isShow = !this.isShow;
+        }
+      }
+    });
+
+    new Vue({
+      el: "#box3",
+      data() {
+        return {
+          data: {
+            status: "ok",
+            user_list: [
+              { id: 1, name: "liu", age: "18" },
+              { id: 2, name: "xiao", age: "28" },
+              { id: 3, name: "bai", age: "38" }
+            ]
+          },
+          object: {
+            name: "liu",
+            age: "18"
+          }
+        };
+      }
+    });
+
+    new Vue({
+      el: "#box4",
+      data() {
+        return {
+          name: "aaa"
+        };
+      },
+      components: {
+        "my-father": {
+          template: "#father",
+          data() {
+            return {
+              name: "jay"
+            };
+          },
+          methods: {
+            changeSon(){
+              // this.name="whimzhu"
+              this.$emit("update:myname",this.name)
+            }
+          },
+          props:["myname"]
+          // components: {
+          //   "my-son": {
+          //     template: "#son",
+          //     data() {
+          //       return {
+          //         name: "james"
+          //       };
+          //     },
+          //     methods: {
+          //       changeFahter(){
+          //         this.$emit("updata:myname",this.name)
+          //       }
+          //     },
+          //     props:["myname"]
+          //   },
+          // }
+        }
+      }
+    });
+  </script>
+</html>

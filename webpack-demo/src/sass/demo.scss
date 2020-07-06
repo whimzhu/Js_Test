@@ -1,0 +1,10 @@
+@import '_mixin';
+
+$fs16:16px;
+
+.main{
+    font-size: $fs16;
+    width: 100px;
+    height: 100px;
+    @include bo;
+}
