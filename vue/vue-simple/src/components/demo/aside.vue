@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     handleSelect(key, keyPath) {
-      // console.log(key, keyPath);
+      console.log(key, keyPath);
     }
   },
   watch: {
