@@ -7,6 +7,7 @@ import Two from '@/components/Two'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/', // 默认页面重定向到主页
