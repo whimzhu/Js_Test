@@ -37,17 +37,24 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(['saveTag']),
+    // ...mapMutations(['saveTag']),
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.saveTag(this.numberValidateForm.value);
+          // this.saveTag(this.numberValidateForm.value);
           //   this.$store.commit("saveTag", this.numberValidateForm.value);
-          this.$message({
-            message: "恭喜你，提交成功！",
-            type: "success"
+          this.$store.dispatch("saveTagAction", this.numberValidateForm.value).then((res)=>{
+            this.$message({
+              message: res,
+              type: "success"
+            });
+            this.resetForm("numberValidateForm");
           });
-          this.resetForm("numberValidateForm");
+          // this.$message({
+          //   message: "恭喜你，提交成功！",
+          //   type: "success"
+          // });
+          // this.resetForm("numberValidateForm");
         } else {
           this.$message.error("很遗憾，提交失败！");
           this.resetForm("numberValidateForm");

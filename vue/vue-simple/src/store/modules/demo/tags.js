@@ -20,7 +20,16 @@ const mutations = {
   }
 };
 
-const actions = {};
+const actions = {
+  saveTagAction: ({ commit },value) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        commit("saveTag",value);
+        resolve("恭喜你，提交成功！！");
+      }, 2000);
+    });
+  }
+};
 
 const getters = {
   getTags: state => {
