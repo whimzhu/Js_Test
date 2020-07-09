@@ -21,13 +21,21 @@ const mutations = {
 };
 
 const actions = {
-  saveTagAction: ({ commit },value) => {
+  saveTagAsync: ({ commit }, value) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        commit("saveTag",value);
+        commit("saveTag", value);
         resolve("恭喜你，提交成功！！");
-      }, 2000);
+      }, 1000);
     });
+  },
+  deleteTagAsync({commit},id){
+    return new Promise((resolve,reject)=>{
+      setTimeout(() => {
+        commit("deleteTag",id);
+        resolve("恭喜你，删除成功！！");
+      }, 1000);
+    })
   }
 };
 

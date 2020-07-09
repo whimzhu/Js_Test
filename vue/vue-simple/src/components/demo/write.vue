@@ -43,7 +43,7 @@ export default {
         if (valid) {
           // this.saveTag(this.numberValidateForm.value);
           //   this.$store.commit("saveTag", this.numberValidateForm.value);
-          this.$store.dispatch("saveTagAction", this.numberValidateForm.value).then((res)=>{
+          this.$store.dispatch("saveTagAsync", this.numberValidateForm.value).then((res)=>{
             this.$message({
               message: res,
               type: "success"
