@@ -9,9 +9,9 @@
   <body></body>
   <script>
     function runAsync1() {
-      var p = new Promise(function(resolve, reject) {
+      var p = new Promise(function (resolve, reject) {
         //做一些异步操作
-        setTimeout(function() {
+        setTimeout(function () {
           console.log("异步任务1执行完成");
           resolve("随便什么数据1");
         }, 1000);
@@ -19,19 +19,19 @@
       return p;
     }
     function runAsync2() {
-      var p = new Promise(function(resolve, reject) {
+      var p = new Promise(function (resolve, reject) {
         //做一些异步操作
-        setTimeout(function() {
-          console.log("异步任务2执行完成");
-          resolve("随便什么数据2");
+        setTimeout(function () {
+          console.log("异步任务2未执行完成");
+          reject("未知的错误2");
         }, 2000);
       });
       return p;
     }
     function runAsync3() {
-      var p = new Promise(function(resolve, reject) {
+      var p = new Promise(function (resolve, reject) {
         //做一些异步操作
-        setTimeout(function() {
+        setTimeout(function () {
           console.log("异步任务3执行完成");
           resolve("随便什么数据3");
         }, 2000);
@@ -39,17 +39,31 @@
       return p;
     }
 
-    runAsync1()
-      .then(function(data) {
-        console.log(data);
-        return runAsync2();
-      })
-      .then(function(data) {
-        console.log(data);
-        return runAsync3();
-      })
-      .then(function(data) {
-        console.log(data);
-      });
+    // runAsync1()
+    //   .then(function (data) {
+    //     console.log(data);
+    //     return runAsync2();
+    //   })
+    //   .then(function (data) {
+    //     console.log(data);
+    //     return runAsync3();
+    //   })
+    //   .then(function (data) {
+    //     console.log(data);
+    //   });
+
+    //all方法
+    Promise.all([runAsync1(), runAsync2(), runAsync3()]).then((res) => {
+      console.log(res);
+    }).catch((res)=>{
+      console.log("Error:"+res);
+    })
+
+    //race方法
+    // Promise.race([runAsync1(), runAsync2(), runAsync3()]).then((res) => {
+    //   console.log(res);
+    // }).catch((res)=>{
+    //   console.log("Error:"+res);
+    // })
   </script>
 </html>
