@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //常量不可重新赋值（除了对象）
+        // const es ="es6";
+        // es = "es2015";
+        // console.log(es);
+
+        //常量具有块级作用域
+        // if(true){
+        //     const es ="es6";
+        // }
+        // console.log(es);
+
+        //使用Object.freeze可以浅冻结
+        const esObj = {
+            name:'es6',
+            year:2015,
+            others:['es7','es8','es9']
+        }
+        // Object.freeze(esObj);
+        // esObj.name = 'es2015';
+        // console.log(esObj);
+
+        //自定义深冻结函数
+        function myFreeze(obj) {
+            Object.freeze(obj);
+            Object.keys(obj).forEach(function(v,i){
+                if(typeof(obj[v])=="object"){
+                    myFreeze(obj[v]);
+                }
+            })
+        }
+        myFreeze(esObj)
+        esObj.others[0] = 'es2015';
+        console.log(esObj);
+    </script>
+</body>
+</html>
