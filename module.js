@@ -3,9 +3,14 @@ const number = 12;
 const echart = {
   v: 1
 };
+
 function getEnglishWord() {
   return "hello";
 }
 
-export { word, number, getEnglishWord };
+export {
+  word,
+  number,
+  getEnglishWord
+};
 export default echart;

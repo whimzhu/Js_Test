@@ -14,23 +14,26 @@
         margin: 20px;
         background-color: gray;
       }
-      .red{
+      .red {
         background-color: red;
       }
-      .green{
+      .green {
         background-color: green;
       }
-      .blue{
+      .blue {
         background-color: blue;
       }
-      .width100{
+      .width100 {
         width: 100px;
       }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="myinput"><button @click="flag=!flag">改变颜色</button><input type="text" v-model="inputText"></div>
+      <div class="myinput">
+        <button @click="flag=!flag">改变颜色</button
+        ><input type="text" v-model="inputText" />
+      </div>
       <div class="demo" :style="myStyle" :class="{red:flag}"></div>
       <div class="demo" :class="{green:flag}"></div>
       <div class="demo" :class="[{blue:flag},width100]"></div>
@@ -40,21 +43,21 @@
     // 实例化Vue
     new Vue({
       el: "#app",
-      data:{
+      data: {
         // myStyle:{
         //   'background-color':this.inputText
         // },
-        inputText:'',
-        isRed:true,
-        flag:false,
-        width100:'width100'
+        inputText: "",
+        isRed: true,
+        flag: false,
+        width100: "width100",
       },
       computed: {
-        myStyle(){
+        myStyle() {
           return {
-            'background-color':this.inputText
-          }
-        }
+            "background-color": this.inputText,
+          };
+        },
       },
     });
   </script>

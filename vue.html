@@ -64,7 +64,7 @@
     <template id="father">
       <div>
         <p>{{myname}}</p>
-        <button @click='changeSon'>改变子组件的数据</button>
+        <button @click="changeSon">改变子组件的数据</button>
         <!-- <my-son :myname.sync="name"></my-son> -->
       </div>
     </template>
@@ -84,16 +84,16 @@
         str1: "love python",
         person: {
           name: "liu",
-          age: 18
-        }
-      }
+          age: 18,
+        },
+      },
     });
 
     new Vue({
       el: "#box1",
       data() {
         return {
-          isShow: true
+          isShow: true,
         };
       },
       // 方法都在这里面定义
@@ -104,8 +104,8 @@
         changeShow() {
           // 点击按钮就取反然后赋值,所以点击就是一直显示隐藏
           this.isShow = !this.isShow;
-        }
-      }
+        },
+      },
     });
 
     new Vue({
@@ -117,22 +117,22 @@
             user_list: [
               { id: 1, name: "liu", age: "18" },
               { id: 2, name: "xiao", age: "28" },
-              { id: 3, name: "bai", age: "38" }
-            ]
+              { id: 3, name: "bai", age: "38" },
+            ],
           },
           object: {
             name: "liu",
-            age: "18"
-          }
+            age: "18",
+          },
         };
-      }
+      },
     });
 
     new Vue({
       el: "#box4",
       data() {
         return {
-          name: "aaa"
+          name: "aaa",
         };
       },
       components: {
@@ -140,16 +140,16 @@
           template: "#father",
           data() {
             return {
-              name: "jay"
+              name: "jay",
             };
           },
           methods: {
-            changeSon(){
+            changeSon() {
               // this.name="whimzhu"
-              this.$emit("update:myname",this.name)
-            }
+              this.$emit("update:myname", this.name);
+            },
           },
-          props:["myname"]
+          props: ["myname"],
           // components: {
           //   "my-son": {
           //     template: "#son",
@@ -166,8 +166,8 @@
           //     props:["myname"]
           //   },
           // }
-        }
-      }
+        },
+      },
     });
   </script>
 </html>
