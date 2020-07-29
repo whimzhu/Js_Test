@@ -20,8 +20,9 @@
       <sonThree
         :sonThreeMsg="msg3"
         @changeSonThreeMsg="msg3 = $event"
+        v-slot:aa="{ b }"
       >
-        <p>我是slot内容</p>
+        <p>{{b}}</p>
       </sonThree>
     </div>
   </div>
