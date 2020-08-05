@@ -1,4 +1,6 @@
-const { add } = require("./function");
+const {
+  add
+} = require("./function");
 
 add(1, 2);
 
@@ -32,6 +34,10 @@ const app = new Vue({
   components: {
     App,
   },
+  // render: (h) => h(App)
+  // render: (h) => h("h2", {
+  //   "class": "oh"
+  // }, ["render来了", h("h3", ["再来一个render"])])
 });
 
 document.writeln("<div>hehe</div>");
