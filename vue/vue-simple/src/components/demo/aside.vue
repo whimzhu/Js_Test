@@ -49,8 +49,8 @@ export default {
   },
   watch: {
     $route(to, from) {
-    //   console.log(this.$route.matched)
-    //   console.log(`前往路由：${to.name}`);
+      //   console.log(this.$route.matched)
+      //   console.log(`前往路由：${to.name}`);
     }
   }
 };

@@ -27,14 +27,14 @@
 export default {
   data() {
     return {
-      flag:true
+      flag: true
     };
   },
   // created() {
   //   this.$router.push({path:this.$route.matched[1].path});
   // },
   computed: {
-    activeIndex(){
+    activeIndex() {
       return this.$route.path
     }
   },
@@ -46,7 +46,7 @@ export default {
   watch: {
     $route(to, from) {
       // console.log(this.$route.matched)
-    //   console.log(`前往路由：${to.name}`);
+      //   console.log(`前往路由：${to.name}`);
     }
   }
 };

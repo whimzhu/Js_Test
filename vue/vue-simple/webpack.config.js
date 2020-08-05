@@ -9,8 +9,7 @@ module.exports = {
     filename: "build.js"
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.css$/,
         use: ["vue-style-loader", "css-loader"]
       },
@@ -25,7 +24,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          plugins: ['syntax-dynamic-import']
+        },
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

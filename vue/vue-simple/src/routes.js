@@ -1,22 +1,40 @@
-import Fs from "./components/fs/father.vue";
-import Demo from "./components/demo/home.vue";
-import DemoWrite from "./components/demo/write.vue";
-import DemoDetail from "./components/demo/detail.vue";
+// import Fs from "./components/fs/father.vue";
+// import Demo from "./components/demo/home.vue";
+// import DemoWrite from "./components/demo/write.vue";
+// import DemoDetail from "./components/demo/detail.vue";
 
-export const routes = [
-  { path: "/", component: Fs },
+//使用路由懒加载
+
+const Fs = () => import("./components/fs/father.vue")
+const Demo = () => import("./components/demo/home.vue")
+const DemoWrite = () => import("./components/demo/write.vue")
+const DemoDetail = () => import("./components/demo/detail.vue")
+
+export const routes = [{
+    path: "/",
+    component: Fs
+  },
   {
     path: "/demo",
     component: Demo,
-    redirect: "/demo/write",
-    children: [
-      { path: "/demo/write", component: DemoWrite, name: "demo-write" },
+    children: [{
+        path: "write",
+        component: DemoWrite,
+        name: "demo-write"
+      },
       {
-        path: "/demo/detail",
+        path: "detail",
         component: DemoDetail,
         name: "demo-detail"
+      },
+      {
+        path: "*",
+        redirect: "write"
       }
     ]
   },
-  { path: "*", redirect: "/" }
+  {
+    path: "*",
+    redirect: "/"
+  }
 ];
