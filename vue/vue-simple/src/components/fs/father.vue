@@ -20,9 +20,11 @@
       <sonThree
         :sonThreeMsg="msg3"
         @changeSonThreeMsg="msg3 = $event"
-        v-slot:aa="{ b }"
       >
-        <p>{{b}}</p>
+        <!-- 有name的slot必须用template包裹 -->
+        <template v-slot:aa="{ b }">
+          <p>{{b}}</p>
+        </template>
       </sonThree>
     </div>
   </div>
