@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld />
   </div>
 </template>
 
@@ -11,6 +10,26 @@ import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
+  data() {
+    return {
+      path: "/home/hello1"
+    }
+  },
+  created() {
+    console.log("create");
+  },
+  activated() {
+    // console.log("activated");
+    this.$router.push(this.path)
+  },
+  // deactivated() {
+  //   console.log("deactivated");
+  // },
+  beforeRouteLeave(to, from, next) {
+    // console.log(from.path);
+    this.path = from.path;
+    next()
+  },
   components: {
     HelloWorld
   }
