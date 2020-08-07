@@ -1,6 +1,6 @@
 <template>
   <div>{{otherMessage}}
-    <img src="../img/aaa.jpg">
+    <img src="~@/img/aaa.jpg">
   </div>
 </template>
 

@@ -1,16 +1,16 @@
 const {
   add
-} = require("./function");
+} = require("@/function");
 
 add(1, 2);
 
 // 加载css
-require("./css/index.css");
+require("@/css/index.css");
 
 //引入Vue
 import Vue from "vue";
 
-import App from "./vue/App.vue";
+import App from "@/vue/App.vue";
 
 const app = new Vue({
   el: "#app",
