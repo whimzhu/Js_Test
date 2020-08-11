@@ -6,17 +6,27 @@
       </el-aside>
       <el-main>
         <!-- <transition name="fade"> -->
-          <router-view></router-view>
+        <router-view></router-view>
         <!-- </transition> -->
       </el-main>
     </el-container>
+    <div>{{$store.state.demoTags.obj}}</div>
+    <!-- <button @click="modifyObj">修改obj</button> -->
   </div>
 </template>
 
 <script>
 import Aside from "./aside.vue";
+import Vue from "vue";
 
 export default {
+  // methods: {
+  //   modifyObj() {
+  //     // this.$store.state.demoTags.obj["address"] = "巴塞罗那"
+  //     this.$set(this.$store.state.demoTags.obj, "address", "巴塞罗那")
+  //     this.$delete(this.$store.state.demoTags.obj, "name")
+  //   }
+  // },
   components: {
     appAside: Aside
   }
@@ -50,21 +60,26 @@ body > .el-container {
   margin-bottom: 40px;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to{
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 
-.right-enter, .right-leave-to {
-      transform: translate3d(100%,0, 0)
+.right-enter,
+.right-leave-to {
+  transform: translate3d(100%, 0, 0);
 }
-.right-leave, .right-enter-to {
-      transform: translate3d(0, 0, 0)
+.right-leave,
+.right-enter-to {
+  transform: translate3d(0, 0, 0);
 }
-.right-enter-active, .right-leave-active {
-      transition: all .2s
+.right-enter-active,
+.right-leave-active {
+  transition: all 0.2s;
 }
 </style>
 

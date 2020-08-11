@@ -1,6 +1,10 @@
 const state = {
-  id:0,
-  tags: []
+  id: 0,
+  tags: [],
+  // obj: {
+  //   name: "messi",
+  //   age: 33
+  // }
 };
 
 const mutations = {
@@ -21,7 +25,9 @@ const mutations = {
 };
 
 const actions = {
-  saveTagAsync: ({ commit }, value) => {
+  saveTagAsync: ({
+    commit
+  }, value) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         commit("saveTag", value);
@@ -29,10 +35,12 @@ const actions = {
       }, 1000);
     });
   },
-  deleteTagAsync({commit},id){
-    return new Promise((resolve,reject)=>{
+  deleteTagAsync({
+    commit
+  }, id) {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
-        commit("deleteTag",id);
+        commit("deleteTag", id);
         resolve("恭喜你，删除成功！！");
       }, 1000);
     })
