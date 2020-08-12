@@ -12,8 +12,8 @@
       var p = new Promise(function (resolve, reject) {
         //做一些异步操作
         setTimeout(function () {
-          console.log("异步任务1执行完成");
-          resolve("随便什么数据1");
+          console.log('异步任务1执行完成');
+          resolve('随便什么数据1');
         }, 1000);
       });
       return p;
@@ -22,8 +22,8 @@
       var p = new Promise(function (resolve, reject) {
         //做一些异步操作
         setTimeout(function () {
-          console.log("异步任务2未执行完成");
-          reject("未知的错误2");
+          console.log('异步任务2未执行完成');
+          reject('未知的错误2');
         }, 2000);
       });
       return p;
@@ -32,8 +32,8 @@
       var p = new Promise(function (resolve, reject) {
         //做一些异步操作
         setTimeout(function () {
-          console.log("异步任务3执行完成");
-          resolve("随便什么数据3");
+          console.log('异步任务3执行完成');
+          resolve('随便什么数据3');
         }, 2000);
       });
       return p;
@@ -58,7 +58,7 @@
         console.log(res);
       })
       .catch((res) => {
-        console.log("Error:" + res);
+        console.log('Error:' + res);
       });
 
     //race方法

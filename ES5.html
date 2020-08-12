@@ -18,7 +18,7 @@
     // console.log(a.lastIndexOf(9, 5)); //5
 
     //forEach(fn)：用于替代for循环，比for循环简便，但不能随意退出，不能使用break。此方法没有返回值。
-    const items = ["item1", "item2", "item3"];
+    const items = ['item1', 'item2', 'item3'];
     const copy = [];
     items.forEach(function (item) {
       copy.push(item);
@@ -34,13 +34,13 @@
 
     //filter(fn): 得到执行fn后返回时true对应的数组元素组成的数组，利用这个方法对数组元素进行筛选。
     var words = [
-      "spray",
-      "limit",
-      "elite",
-      "exuberant",
-      "destruction",
-      "present",
-      "happy",
+      'spray',
+      'limit',
+      'elite',
+      'exuberant',
+      'destruction',
+      'present',
+      'happy'
     ];
 
     var longWords = words.filter(function (word) {
@@ -67,14 +67,14 @@
     let sum = arr.reduce((prev, cur) => {
       return prev + cur;
     }, 0);
-    console.log("arr", sum); // 15
+    console.log('arr', sum); // 15
 
     const arr1 = [1, 9, 3, 4, 5];
     // 数组求最大值
     let max = arr1.reduce((prev, cur) => {
       return Math.max(prev, cur);
     }, 0);
-    console.log("arr1", max); // 9
+    console.log('arr1', max); // 9
 
     //every(fn):执行函数时，所有元素都返回ture,则返回ture。
     var aa = [2, 5, 8, 4];

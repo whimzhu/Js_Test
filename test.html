@@ -10,20 +10,20 @@
   <body></body>
   <script>
     const target = {
-      name: "Messi",
-      age: 29,
+      name: 'Messi',
+      age: 29
     };
 
     const handler = {
       get: function (target, key, receiver) {
         console.log(`getting ${key}!`);
-        if (key === "age") {
+        if (key === 'age') {
           const age = Reflect.get(target, key, receiver);
           Reflect.set(target, key, age + 1, receiver);
           return age + 1;
         }
         return Reflect.get(target, key, receiver);
-      },
+      }
     };
     const a = new Proxy(target, handler);
     console.log(a.age, a.age);

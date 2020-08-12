@@ -21,9 +21,9 @@
 
       //使用Object.freeze可以浅冻结
       const esObj = {
-        name: "es6",
+        name: 'es6',
         year: 2015,
-        others: ["es7", "es8", "es9"],
+        others: ['es7', 'es8', 'es9']
       };
       // Object.freeze(esObj);
       // esObj.name = 'es2015';
@@ -33,13 +33,13 @@
       function myFreeze(obj) {
         Object.freeze(obj);
         Object.keys(obj).forEach(function (v, i) {
-          if (typeof obj[v] == "object") {
+          if (typeof obj[v] == 'object') {
             myFreeze(obj[v]);
           }
         });
       }
       myFreeze(esObj);
-      esObj.others[0] = "es2015";
+      esObj.others[0] = 'es2015';
       console.log(esObj);
     </script>
   </body>
