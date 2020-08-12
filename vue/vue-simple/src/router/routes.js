@@ -5,10 +5,10 @@
 
 //使用路由懒加载
 
-const Fs = () => import("./components/fs/father.vue")
-const Demo = () => import("./components/demo/home.vue")
-const DemoWrite = () => import("./components/demo/write.vue")
-const DemoDetail = () => import("./components/demo/detail.vue")
+const Fs = () => import("@/views/fs/father.vue")
+const Demo = () => import("@/views/demo/home.vue")
+const DemoWrite = () => import("@/views/demo/write.vue")
+const DemoDetail = () => import("@/views/demo/detail.vue")
 
 export const routes = [{
     path: "/",

@@ -10,8 +10,8 @@
 
 <script>
 // import father from './components/father.vue'
-import Header from "./components/header.vue";
-import Hr from './components/hr.vue';
+import Header from "@/views/Header";
+import Hr from '@/components/common/Hr';
 
 export default {
   components: {

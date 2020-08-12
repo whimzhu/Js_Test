@@ -34,7 +34,7 @@
 import SonOne from './sonOne.vue'
 import SonTwo from './sonTwo.vue'
 import SonThree from './sonThree.vue'
-import { eventBus } from '../../main.js'
+import { eventBus } from '@/main.js'
 export default {
   data() {
     return {
