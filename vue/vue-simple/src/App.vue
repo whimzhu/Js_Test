@@ -11,7 +11,7 @@
 <script>
 // import father from './components/father.vue'
 import Header from "@/views/Header";
-import Hr from '@/components/common/Hr';
+import Hr from '@/components/common/Hr/Hr';
 
 export default {
   components: {
