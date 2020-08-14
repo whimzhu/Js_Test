@@ -1,0 +1,30 @@
+{
+  "id": "2006418",
+  "name": "mobile-frame",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11398415",
+      "name": "热点",
+      "font_class": "redian",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "6211329",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "8752106",
+      "name": "首页-选中",
+      "font_class": "yemian",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
