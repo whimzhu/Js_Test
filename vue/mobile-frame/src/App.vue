@@ -1,48 +1,33 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <bottom-menu>
-      <bottom-menu-items path="/home">
-        <template #iconfont>
-          <span class="iconfont">&#xe600;</span>
-        </template>
-        <template #icontext>
-          首页
-        </template>
-      </bottom-menu-items>
-      <bottom-menu-items path="/hot">
-        <template #iconfont>
-          <span class="iconfont">&#xe647;</span>
-        </template>
-        <template #icontext>
-          热点
-        </template>
-      </bottom-menu-items>
-      <bottom-menu-items path="/profile">
-        <template #iconfont>
-          <span class="iconfont">&#xe601;</span>
-        </template>
-        <template #icontext>
-          我的
-        </template>
-      </bottom-menu-items>
-    </bottom-menu>
+    <top-nav></top-nav>
+    <scroll>
+      <router-view></router-view>
+    </scroll>
+    <bottom-menu-con></bottom-menu-con>
   </div>
 </template>
 
 <script>
-import bottomMenu from './components/common/bottomMenu/bottomMenu';
-import bottomMenuItems from './components/common/bottomMenu/bottomMenuItems';
+import TopNav from './components/common/topNav/TopNav';
+import Scroll from './components/common/scroll/Scroll';
+import BottomMenuCon from './components/content/bottomMenuCon/BottomMenuCon';
 
 export default {
   name: "App",
   components: {
-    bottomMenu,
-    bottomMenuItems
+    BottomMenuCon,
+    TopNav,
+    Scroll
   }
 }
 </script>
 
 <style lang="scss">
 @import '~@/assets/css/base.scss';
+
+#app {
+  padding-top: 48px;
+  height: calc(100vh - 48px);
+}
 </style>

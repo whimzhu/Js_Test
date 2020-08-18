@@ -9,13 +9,28 @@ Vue.use(VueRouter)
 
 const routes = [{
   path: "/home",
+  name: "home",
+  meta: {
+    title: "首页"
+  },
   component: Home
 }, {
   path: "/hot",
+  name: "hot",
+  meta: {
+    title: "热点"
+  },
   component: Hot
 }, {
   path: "/profile",
+  name: "profile",
+  meta: {
+    title: "我的"
+  },
   component: Profile
+}, {
+  path: "*",
+  redirect: "/home"
 }]
 
 const router = new VueRouter({

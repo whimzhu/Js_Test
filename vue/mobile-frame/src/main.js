@@ -8,6 +8,8 @@ import './assets/fonts/iconfont.css'; //引入iconfont.css
 
 import 'amfe-flexible'; //引入amfe-flexible
 
+Vue.prototype.$bus = new Vue();
+
 Vue.config.productionTip = false
 
 new Vue({
