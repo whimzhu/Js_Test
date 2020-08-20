@@ -1,5 +1,5 @@
 const path = require('path'); //引入path模块
-
+console.log(process.env.NODE_ENV);
 module.exports = {
   publicPath: './',
   lintOnSave: false,
@@ -30,6 +30,7 @@ module.exports = {
       css: {},
       postcss: {
         plugins: [
+          require('autoprefixer'),
           require('postcss-px2rem')({
             remUnit: 37.5 //根据设计图
             //375的图就给37.5，也就是1rem=37.5px

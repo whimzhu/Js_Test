@@ -29,11 +29,11 @@ export default {
   display: flex;
   background-color: #f9f9f9;
   box-shadow: 2px 0 5px #e1e1e1;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 999;
+  // position: fixed;
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // z-index: 999;
   & > div {
     flex: 1;
     display: flex;

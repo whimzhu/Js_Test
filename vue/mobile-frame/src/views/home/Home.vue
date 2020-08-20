@@ -1,8 +1,11 @@
 <template>
-  <user-list :userLists="userLists"></user-list>
+  <scroll ref="scroll">
+    <user-list :userLists="userLists"></user-list>
+  </scroll>
 </template>
 
 <script>
+import Scroll from '@/components/common/scroll/Scroll';
 import { request } from '@/network/request';
 import mock from '@/mock/mock';
 
@@ -30,10 +33,11 @@ export default {
   },
   mounted() {
     this.$bus.$on("itemImgLoad", () => {
-      this.$parent.scroll.refresh();
+      this.$refs.scroll.refresh();
     });
   },
   components: {
+    Scroll,
     UserList
   }
 }

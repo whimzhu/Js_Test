@@ -33,8 +33,11 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  // height: 100%;
+  // overflow-x: hidden;
+  // overflow-y: auto;
   .home-item {
-    margin-top: 10px;
+    margin: 5px 0;
   }
 }
 </style>
