@@ -2,6 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import mock from '@/mock/mock';
+
+import Loading from 'vant/lib/loading';
+import 'vant/lib/loading/style';
+
+Vue.use(Loading);
 
 import 'normalize.css/normalize.css'; //引入normalize.css
 import './assets/fonts/iconfont.css'; //引入iconfont.css

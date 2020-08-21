@@ -7,7 +7,6 @@
       </keep-alive>
     </div>
     <bottom-menu-con></bottom-menu-con>
-
     <!-- <div class="header"></div>
         <div class="con">
             <div class="temp">111</div>
@@ -64,10 +63,24 @@ html {
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-.main {
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
+  .main {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .vant-loading {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+  }
 }
 </style>
