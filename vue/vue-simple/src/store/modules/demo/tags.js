@@ -15,12 +15,8 @@ const mutations = {
       id: state.id++
     });
   },
-  deleteTag: (state, id) => {
-    state.tags.forEach((v, i) => {
-      if (v.id == id) {
-        state.tags.splice(i, 1);
-      }
-    });
+  deleteTag: (state, index) => {
+    state.tags.splice(index, 1);
   }
 };
 
@@ -36,11 +32,16 @@ const actions = {
     });
   },
   deleteTagAsync({
+    state,
     commit
   }, id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        commit("deleteTag", id);
+        state.tags.forEach((v, i) => {
+          if (v.id == id) {
+            commit("deleteTag", i);
+          }
+        });
         resolve("恭喜你，删除成功！！");
       }, 1000);
     })
