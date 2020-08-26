@@ -1,4 +1,5 @@
 <template>
+  <!-- 此处外部不要包裹任何dom，不然better-scroll组件无法滚动 -->
   <scroll
     ref="scroll"
     :pullUpLoad="true"
@@ -7,6 +8,7 @@
   >
     <template #scroll-con>
       <user-list :userLists="userLists"></user-list>
+      <!-- <db-top-list :dbTopLists="dbTopLists"></db-top-list> -->
     </template>
     <template #to-top>
       <to-top
@@ -30,44 +32,35 @@
 
 <script>
 import Scroll from '@/components/common/scroll/Scroll';
-import ToTop from '@/components/common/toTop/ToTop';
-import { getUserList } from '@/network/home';//home模块相关请求
+import { getUserList, getDbTop250 } from '@/network/home';//home模块相关请求
 
 import UserList from '@/views/home/childComps/UserList';
+import DbTopList from '@/views/home/childComps/DbTopList';
+
+import { debounce } from '@/common/utils';
+import { toTopMixin } from '@/common/mixins';
 
 export default {
   data() {
     return {
       userLists: [],
-      isShowToTop: false,
+      dbTopLists: [],
       // isShowLoading: false
     }
   },
   created() {
     //请求数据
     this.getUserList();
-
+    this.getDbTop250();
   },
   mounted() {
-    const refresh = this.debounce(this.$refs.scroll.refresh, 100);
+    const refresh = debounce(this.$refs.scroll.refresh);
     this.$bus.$on("itemImgLoad", () => {
       refresh();
     })
   },
-  computed: {
-
-  },
+  mixins: [toTopMixin],
   methods: {
-    //防抖函数
-    debounce(fn, wait) {
-      let timer = null;
-      return function () {
-        if (timer !== null) {
-          clearTimeout(timer);
-        }
-        timer = setTimeout(fn, wait);
-      }
-    },
     getUserList() {
       getUserList().then(res => {
         this.userLists.push(...res.data.array);
@@ -77,17 +70,21 @@ export default {
         console.log(err)
       });
     },
-    tClick() {
-      this.$refs.scroll.scrollToTop();
-    },
-    getScroll({ x, y }) {
-      this.isShowToTop = (-y) > 300 ? true : false;
+    getDbTop250() {
+      getDbTop250().then(res => {
+        console.log(res);
+        this.dbTopLists.push(...res.data.subjects);
+        this.$refs.scroll.finishPullUp();
+        // this.isShowLoading = false;
+      }).catch(function (err) {
+        console.log(err)
+      });
     }
   },
   components: {
     Scroll,
-    ToTop,
-    UserList
+    UserList,
+    DbTopList
   }
 }
 </script>

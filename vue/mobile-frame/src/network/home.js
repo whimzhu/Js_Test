@@ -10,3 +10,23 @@ export function getUserList() {
     // data: {}
   })
 }
+
+export function getDbTop250() {
+  return request({
+    url: "/douban/v2/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b",
+    // responseType: 'json/text',
+    method: "get",
+    params: {
+      start: 0,
+      count: 50
+    }
+  })
+}
+
+// export class UserList {
+//   constructor(data) {
+//     this.id = data.id;
+//     this.name = data.username;
+//     this.url = data.avatar;
+//   }
+// }

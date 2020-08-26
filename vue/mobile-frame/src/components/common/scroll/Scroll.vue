@@ -144,7 +144,7 @@ export default {
     });
 
     //监测上拉动作
-    this.scroll.on("pullingUp", () => {
+    this.pullUpLoad && this.scroll.on("pullingUp", () => {
       this.$emit("pullingUp");
     })
 
