@@ -21,3 +21,14 @@ export const toTopMixin = {
     }
   },
 }
+
+export const imgMixin = {
+  methods: {
+    noFindImg() {
+      let img = event.srcElement;
+      // img.src = "http://temp.im/150x200";
+      img.src = require('@/assets/img/pic404.jpg');
+      img.onerror = null; //防止一直跳动
+    },
+  },
+}

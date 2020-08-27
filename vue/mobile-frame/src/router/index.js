@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 const Home = () => import("@/views/home/Home")
 const Hot = () => import("@/views/hot/Hot")
 const Profile = () => import("@/views/profile/Profile")
+const Detail = () => import("@/views/detail/Detail")
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,13 @@ const routes = [{
     title: "我的"
   },
   component: Profile
+}, {
+  path: "/detail/:id",
+  name: "detail",
+  meta: {
+    title: "详情"
+  },
+  component: Detail
 }, {
   path: "*",
   redirect: "/home"

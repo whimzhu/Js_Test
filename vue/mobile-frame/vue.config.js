@@ -1,7 +1,7 @@
 const path = require('path'); //引入path模块
 console.log(process.env.NODE_ENV);
 module.exports = {
-  publicPath: './',
+  publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   lintOnSave: false,
   configureWebpack: {
     resolve: {

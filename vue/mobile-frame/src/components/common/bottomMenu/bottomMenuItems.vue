@@ -1,7 +1,7 @@
 <template>
   <div
     class="b-items"
-    @click="itemsClick"
+    @click="itemClick"
     :class="{'cur':isActive}"
   >
     <!-- 图标 -->
@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-    itemsClick() {
+    itemClick() {
       this.$router.replace(this.path)
     }
   },

@@ -10,6 +10,7 @@ import 'vant/lib/loading/style';
 Vue.use(Loading);
 
 import 'normalize.css/normalize.css'; //引入normalize.css
+import './assets/css/base.scss'; //引入base.scss
 import './assets/fonts/iconfont.css'; //引入iconfont.css
 
 import 'amfe-flexible'; //引入amfe-flexible

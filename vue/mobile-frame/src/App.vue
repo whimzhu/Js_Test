@@ -2,11 +2,11 @@
   <div id="app">
     <top-nav></top-nav>
     <div class="main">
-      <keep-alive>
+      <keep-alive exclude="Detail">
         <router-view></router-view>
       </keep-alive>
     </div>
-    <bottom-menu-con></bottom-menu-con>
+    <bottom-menu-con v-if="isShowBot"></bottom-menu-con>
     <!-- <div class="header"></div>
         <div class="con">
             <div class="temp">111</div>
@@ -28,15 +28,26 @@ import BottomMenuCon from './components/content/bottomMenuCon/BottomMenuCon';
 
 export default {
   name: "App",
+  data() {
+    return {
+      isShowBot: true
+    }
+  },
   components: {
     BottomMenuCon,
     TopNav
-  }
+  },
+  watch: {
+    $route(to, from) {
+      this.isShowBot = to.name == "home" || to.name == "hot" || to.name == "profile";
+      // console.log(to, from, this.$route.path)
+    }
+  },
 }
 </script>
 
 <style lang="scss">
-@import '~@/assets/css/base.scss';
+// @import '~@/assets/css/base.scss';
 
 // #app {
 //   // display: flex;

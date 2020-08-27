@@ -1,14 +1,18 @@
 <template>
   <!-- 此处外部不要包裹任何dom，不然better-scroll组件无法滚动 -->
   <scroll
+    class="scroll-wrap"
     ref="scroll"
     :pullUpLoad="true"
-    @pullingUp="getUserList"
+    @pullingUp="getDbTopList"
     @scroll="getScroll"
   >
     <template #scroll-con>
-      <user-list :userLists="userLists"></user-list>
-      <!-- <db-top-list :dbTopLists="dbTopLists"></db-top-list> -->
+      <!-- <user-list :userLists="userLists"></user-list> -->
+      <db-top-list
+        :dbTopLists="dbTopLists"
+        v-if="dbTopListsFlag"
+      ></db-top-list>
     </template>
     <template #to-top>
       <to-top
@@ -45,13 +49,14 @@ export default {
     return {
       userLists: [],
       dbTopLists: [],
+      dbTopListsFlag: false
       // isShowLoading: false
     }
   },
   created() {
     //请求数据
-    this.getUserList();
-    this.getDbTop250();
+    // this.getUserList();
+    this.getDbTop250(0);
   },
   mounted() {
     const refresh = debounce(this.$refs.scroll.refresh);
@@ -61,24 +66,29 @@ export default {
   },
   mixins: [toTopMixin],
   methods: {
-    getUserList() {
-      getUserList().then(res => {
-        this.userLists.push(...res.data.array);
+    // getUserList() {
+    //   getUserList().then(res => {
+    //     this.userLists.push(...res.data.array);
+    //     this.$refs.scroll.finishPullUp();
+    //     // this.isShowLoading = false;
+    //   }).catch(function (err) {
+    //     console.log(err)
+    //   });
+    // },
+    getDbTop250(start, count) {
+      getDbTop250(start, count).then(res => {
+        console.log(res);
+        this.dbTopLists.push(...res.data.subjects);
+        this.dbTopListsFlag = true;
         this.$refs.scroll.finishPullUp();
         // this.isShowLoading = false;
       }).catch(function (err) {
         console.log(err)
       });
     },
-    getDbTop250() {
-      getDbTop250().then(res => {
-        console.log(res);
-        this.dbTopLists.push(...res.data.subjects);
-        this.$refs.scroll.finishPullUp();
-        // this.isShowLoading = false;
-      }).catch(function (err) {
-        console.log(err)
-      });
+    getDbTopList() {
+      let len = this.dbTopLists.length;
+      len == 250 || this.getDbTop250(len);
     }
   },
   components: {
@@ -90,4 +100,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.scroll-wrap {
+  background-color: #f9f9f9;
+}
 </style>
