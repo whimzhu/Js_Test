@@ -79,6 +79,9 @@ export default {
     span {
       color: #fff;
     }
+    &::first-letter {
+      font-size: 18px;
+    }
   }
   .img-text {
     position: absolute;

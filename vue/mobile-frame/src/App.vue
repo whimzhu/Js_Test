@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    <top-nav></top-nav>
+    <top-nav class="top-nav">
+      <template
+        v-if="isShowBack"
+        #t-nav-l
+      >
+        <span
+          class="iconfont"
+          @click="toBack"
+        >&#xe718;</span>
+      </template>
+    </top-nav>
     <div class="main">
       <keep-alive exclude="Detail">
         <router-view></router-view>
@@ -30,16 +40,23 @@ export default {
   name: "App",
   data() {
     return {
-      isShowBot: true
+      isShowBot: true,
+      isShowBack: false
     }
   },
   components: {
     BottomMenuCon,
     TopNav
   },
+  methods: {
+    toBack() {
+      this.$router.back();
+    }
+  },
   watch: {
     $route(to, from) {
       this.isShowBot = to.name == "home" || to.name == "hot" || to.name == "profile";
+      this.isShowBack = to.name == "detail";
       // console.log(to, from, this.$route.path)
     }
   },
@@ -74,6 +91,12 @@ html {
   width: 100%;
   display: flex;
   flex-direction: column;
+  .top-nav {
+    .iconfont {
+      font-size: 24px;
+      color: $color;
+    }
+  }
   .main {
     flex: 1;
     overflow-x: hidden;

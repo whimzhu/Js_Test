@@ -10,10 +10,10 @@
     </Bottom-menu-items>
     <Bottom-menu-items path="/hot">
       <template #iconfont>
-        <span class="iconfont">&#xe647;</span>
+        <span class="iconfont">&#xe603;</span>
       </template>
       <template #icontext>
-        热点
+        收藏
       </template>
     </Bottom-menu-items>
     <Bottom-menu-items path="/profile">

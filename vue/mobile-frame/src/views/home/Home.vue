@@ -59,10 +59,7 @@ export default {
     this.getDbTop250(0);
   },
   mounted() {
-    const refresh = debounce(this.$refs.scroll.refresh);
-    this.$bus.$on("itemImgLoad", () => {
-      refresh();
-    })
+    this.refresh();
   },
   mixins: [toTopMixin],
   methods: {
@@ -89,6 +86,12 @@ export default {
     getDbTopList() {
       let len = this.dbTopLists.length;
       len == 250 || this.getDbTop250(len);
+    },
+    refresh() {
+      const refresh = debounce(this.$refs.scroll.refresh);
+      this.$bus.$on("itemImgLoad", () => {
+        refresh();
+      })
     }
   },
   components: {

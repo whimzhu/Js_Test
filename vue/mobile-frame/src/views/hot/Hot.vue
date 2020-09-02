@@ -1,111 +1,11 @@
 <template>
   <scroll
+    class="scroll-wrap"
     ref="scroll"
     @scroll="getScroll"
   >
     <template #scroll-con>
-      <ul>
-        <li>热点1</li>
-        <li>热点2</li>
-        <li>热点3</li>
-        <li>热点4</li>
-        <li>热点5</li>
-        <li>热点6</li>
-        <li>热点7</li>
-        <li>热点8</li>
-        <li>热点9</li>
-        <li>热点10</li>
-        <li>热点11</li>
-        <li>热点12</li>
-        <li>热点13</li>
-        <li>热点14</li>
-        <li>热点15</li>
-        <li>热点16</li>
-        <li>热点17</li>
-        <li>热点18</li>
-        <li>热点19</li>
-        <li>热点20</li>
-        <li>热点21</li>
-        <li>热点22</li>
-        <li>热点23</li>
-        <li>热点24</li>
-        <li>热点25</li>
-        <li>热点26</li>
-        <li>热点27</li>
-        <li>热点28</li>
-        <li>热点29</li>
-        <li>热点30</li>
-        <li>热点31</li>
-        <li>热点32</li>
-        <li>热点33</li>
-        <li>热点34</li>
-        <li>热点35</li>
-        <li>热点36</li>
-        <li>热点37</li>
-        <li>热点38</li>
-        <li>热点39</li>
-        <li>热点40</li>
-        <li>热点41</li>
-        <li>热点42</li>
-        <li>热点43</li>
-        <li>热点44</li>
-        <li>热点45</li>
-        <li>热点46</li>
-        <li>热点47</li>
-        <li>热点48</li>
-        <li>热点49</li>
-        <li>热点50</li>
-        <li>热点51</li>
-        <li>热点52</li>
-        <li>热点53</li>
-        <li>热点54</li>
-        <li>热点55</li>
-        <li>热点56</li>
-        <li>热点57</li>
-        <li>热点58</li>
-        <li>热点59</li>
-        <li>热点60</li>
-        <li>热点61</li>
-        <li>热点62</li>
-        <li>热点63</li>
-        <li>热点64</li>
-        <li>热点65</li>
-        <li>热点66</li>
-        <li>热点67</li>
-        <li>热点68</li>
-        <li>热点69</li>
-        <li>热点70</li>
-        <li>热点71</li>
-        <li>热点72</li>
-        <li>热点73</li>
-        <li>热点74</li>
-        <li>热点75</li>
-        <li>热点76</li>
-        <li>热点77</li>
-        <li>热点78</li>
-        <li>热点79</li>
-        <li>热点80</li>
-        <li>热点81</li>
-        <li>热点82</li>
-        <li>热点83</li>
-        <li>热点84</li>
-        <li>热点85</li>
-        <li>热点86</li>
-        <li>热点87</li>
-        <li>热点88</li>
-        <li>热点89</li>
-        <li>热点90</li>
-        <li>热点91</li>
-        <li>热点92</li>
-        <li>热点93</li>
-        <li>热点94</li>
-        <li>热点95</li>
-        <li>热点96</li>
-        <li>热点97</li>
-        <li>热点98</li>
-        <li>热点99</li>
-        <li>热点100</li>
-      </ul>
+      <hot-list></hot-list>
     </template>
     <template #to-top>
       <to-top
@@ -120,13 +20,19 @@
 import Scroll from '@/components/common/scroll/Scroll';
 import { toTopMixin } from '@/common/mixins';
 
+import HotList from './childComps/HotList';
+
 export default {
   mixins: [toTopMixin],
   components: {
-    Scroll
+    Scroll,
+    HotList
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.scroll-wrap {
+  background-color: #f0f4f7;
+}
 </style>

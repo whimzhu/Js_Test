@@ -19,7 +19,7 @@ const routes = [{
   path: "/hot",
   name: "hot",
   meta: {
-    title: "热点"
+    title: "收藏"
   },
   component: Hot
 }, {
@@ -46,6 +46,11 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+// router.beforeEach((to, from, next) => {
+//   console.log(to, from);
+//   next();
+// })
 
 // 解决路由重复点击报错问题
 const originalPush = VueRouter.prototype.push

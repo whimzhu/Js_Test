@@ -41,6 +41,7 @@ export default {
     align-items: center;
   }
   .t-nav-c {
+    flex: 3;
     text-align: center;
     font-size: 18px;
     font-weight: bold;

@@ -1,12 +1,24 @@
 <template>
   <div class="movie-info">
-    <img
-      @load="imgLoad"
-      @error="noFindImg"
-      :src="dbTopDetail.image"
-      alt=""
-      class="movie-img"
-    >
+    <div class="movie-img-wrap">
+      <img
+        @load="imgLoad"
+        @error="noFindImg"
+        :src="dbTopDetail.image"
+        alt=""
+        class="movie-img"
+      >
+      <div
+        class="movie-collect"
+        v-show="!isCollectHigh"
+        @click="itemClick"
+      ><span class="iconfont">&#xe602;</span></div>
+      <div
+        class="movie-collect"
+        v-show="isCollectHigh"
+        @click="itemClick"
+      ><span class="iconfont">&#xe603;</span></div>
+    </div>
     <p class="movie-text">{{dbTopDetail.mainTitle}}</p>
     <p class="movie-text">{{dbTopDetail.otherTitle}}</p>
     <div class="movie-genres">
@@ -58,6 +70,10 @@
 <script>
 import { imgMixin } from '@/common/mixins';
 
+import { mapState } from "vuex";
+import { SAVE_MOVIE } from '@/store/mutations-type';
+import { DELETE_MOVIE } from '@/store/actions-type';
+
 export default {
   props: {
     dbTopDetail: {
@@ -69,15 +85,32 @@ export default {
   },
   data() {
     return {
+      isCollectHigh: false
     }
   },
   computed: {
-
+    ...mapState({
+      myMovieList: state => state.myMovieList
+    })
+  },
+  created() {
+    this.checkCollected();
   },
   methods: {
     imgLoad() {
       this.$emit("itemImgLoad");
     },
+    itemClick() {
+      if (this.isCollectHigh) {
+        this.$store.dispatch(DELETE_MOVIE, this.dbTopDetail);
+      } else {
+        this.$store.commit(SAVE_MOVIE, this.dbTopDetail);
+      }
+      this.isCollectHigh = !this.isCollectHigh;
+    },
+    checkCollected() {
+      this.isCollectHigh = !!this.myMovieList.filter(i => i.id == this.dbTopDetail.id).length
+    }
   },
   mixins: [imgMixin],
 }
@@ -89,9 +122,27 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px 40px;
-  .movie-img {
-    width: 200px;
-    box-shadow: 5px 5px 5px #464547;
+  .movie-img-wrap {
+    position: relative;
+    .movie-img {
+      width: 200px;
+      box-shadow: 5px 5px 5px #464547;
+    }
+    .movie-collect {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 999;
+      .iconfont {
+        font-size: 24px;
+        color: $high-color;
+      }
+    }
   }
   .movie-text {
     margin-top: 10px;
@@ -145,7 +196,9 @@ export default {
       justify-content: space-between;
       flex-wrap: wrap;
       .con {
+        flex: 1;
         margin-top: 5px;
+        text-align: center;
         // width: 70px;
         // height: 100px;
         img {

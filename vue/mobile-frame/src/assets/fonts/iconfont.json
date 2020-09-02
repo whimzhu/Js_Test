@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "8908262",
+      "name": "收 藏",
+      "font_class": "shoucang1",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11716752",
+      "name": "收 藏",
+      "font_class": "shoucang4",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11625485",
+      "name": "后退",
+      "font_class": "houtui",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
       "icon_id": "11050132",
       "name": "暂无图片",
       "font_class": "zanwutupian",

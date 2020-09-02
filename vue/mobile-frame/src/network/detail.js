@@ -13,6 +13,7 @@ export function getDbTopDetail(id) {
 
 export class movieInfo {
   constructor(dbTopDetail) {
+    this.id = dbTopDetail.id;
     this.image = dbTopDetail.images.large;
     this.mainTitle = dbTopDetail.title.split(" ")[0];
     this.otherTitle = dbTopDetail.title.split(" ").splice(1).join(" ");
