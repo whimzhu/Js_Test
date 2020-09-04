@@ -18,11 +18,27 @@
 
 <script>
 import Scroll from '@/components/common/scroll/Scroll';
-import { toTopMixin } from '@/common/mixins';
 
 import HotList from './childComps/HotList';
 
+import { debounce } from '@/common/utils';
+import { toTopMixin } from '@/common/mixins';
+
 export default {
+  mounted() {
+    this.refresh();
+  },
+  activated() {
+    this.$bus.$emit("itemHotImgLoad");
+  },
+  methods: {
+    refresh() {
+      const refresh = debounce(this.$refs.scroll.refresh);
+      this.$bus.$on("itemHotImgLoad", () => {
+        refresh();
+      })
+    }
+  },
   mixins: [toTopMixin],
   components: {
     Scroll,

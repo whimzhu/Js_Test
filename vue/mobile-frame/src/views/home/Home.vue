@@ -61,6 +61,9 @@ export default {
   mounted() {
     this.refresh();
   },
+  activated() {
+    this.$bus.$emit("itemImgLoad");
+  },
   mixins: [toTopMixin],
   methods: {
     // getUserList() {

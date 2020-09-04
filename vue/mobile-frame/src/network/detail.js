@@ -21,5 +21,6 @@ export class movieInfo {
     this.year = dbTopDetail.year;
     this.casts = dbTopDetail.casts;
     this.countries = dbTopDetail.countries;
+    this.rating = dbTopDetail.rating.average;
   }
 }
