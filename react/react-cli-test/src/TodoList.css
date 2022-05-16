@@ -1,0 +1,13 @@
+@import "~antd/dist/antd.css";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrap {
+  width: 50%;
+  margin: 20px auto;
+  border: 1px solid #dedede;
+  padding: 10px;
+}

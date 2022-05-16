@@ -1,0 +1,15 @@
+.item-wrap {
+  padding: 10px;
+}
+
+.item-wrap .text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: orange;
+}
+
+.item-wrap-btn {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
