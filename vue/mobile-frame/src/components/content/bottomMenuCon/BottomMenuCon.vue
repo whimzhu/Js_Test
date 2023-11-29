@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import BottomMenu from '@/components/common/bottomMenu/BottomMenu';
-import BottomMenuItems from '@/components/common/bottomMenu/BottomMenuItems';
+import BottomMenu from '@/components/common/bottomMenu/bottomMenu';
+import BottomMenuItems from '@/components/common/bottomMenu/bottomMenuItems';
 
 // import Vue from 'vue';
 // import Tabbar from 'vant/lib/tabbar';
