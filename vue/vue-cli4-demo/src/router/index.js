@@ -34,6 +34,14 @@ const routes = [{
     component: () => import("../views/About.vue")
   },
   {
+    path: "/canvas",
+    name: "Canvas",
+    meta: {
+      title: "Canvas测试"
+    },
+    component: () => import("../views/Canvas.vue")
+  },
+  {
     path: "",
     redirect: "/home"
   }
