@@ -8,32 +8,65 @@
   </head>
   <body></body>
   <script>
-    let methodName = 'sayName';
+    let methodName = "sayName";
     class Person {
-      constructor() {}
-
-      get age() {
-        alert(30);
+      constructor() {
+        this.name = "周杰伦";
+        this.age = 32;
       }
 
-      set age(num) {
-        alert(num);
+      //静态方法,new出来的实例可以直接调用方法
+      sayAge() {
+        var divEle = document.createElement("div");
+        document.body.appendChild(divEle);
+        divEle.innerHTML = this.age;
       }
+
+      // get age() {
+      //   var divEle = document.createElement("div");
+      //   document.body.appendChild(divEle);
+      //   divEle.innerHTML = 30;
+      // }
+
+      // set age(num) {
+      //   var divEle = document.createElement("div");
+      //   document.body.appendChild(divEle);
+      //   divEle.innerHTML = num;
+      // }
 
       [methodName]() {
-        alert('我叫萧敬腾');
+        var divEle = document.createElement("div");
+        document.body.appendChild(divEle);
+        divEle.innerHTML = this.name;
+        // alert(this.name);
       }
 
+      //如果我们不想让实例对象继承原型上的方法，我们可以在方法前加上 static 关键字
       static hasCar() {
         alert(true);
       }
     }
 
+    class P1 extends Person {
+      constructor(color) {
+        super(name);
+        this.color = color;
+      }
+      sayColor() {
+        var divEle = document.createElement("div");
+        document.body.appendChild(divEle);
+        divEle.innerHTML = this.name + "喜欢" + this.color;
+      }
+    }
+
     let P = new Person();
+    let _P1 = new P1("blue");
 
-    // P.age = 32
+    // P.age = 32;
 
-    // P.sayName();
+    P.sayAge();
+    P.sayName();
+    _P1.sayColor();
 
     // Person.hasCar();
   </script>
