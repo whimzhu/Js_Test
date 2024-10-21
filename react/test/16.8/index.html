@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react16.8测试</title>
+    <style>
+      .title {
+        color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      type="text/javascript"
+      src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/react/16.8.6/umd/react.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/react-dom/16.8.6/umd/react-dom.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/babel-standalone/6.26.0/babel.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prop-types/15.8.1/prop-types.js"
+    ></script>
+    <script type="text/babel">
+      const VDOM = (
+        <h1 className="title">
+          <span style={{ fontSize: "80px" }}>你好，React</span>
+        </h1>
+      );
+
+      // 函数式组件
+      function Demo1() {
+        return <h2>函数式组件</h2>;
+      }
+
+      // 类式组件
+      class Demo2 extends React.Component {
+        render() {
+          return <h2>类式组件</h2>;
+        }
+      }
+
+      class Wrap extends React.Component {
+        constructor(props) {
+          super(props);
+          console.log("constructor");
+        }
+
+        state = { isHello: true };
+
+        changeTitle = () => {
+          this.setState({ isHello: !this.state.isHello });
+        };
+
+        death = () => {
+          ReactDOM.unmountComponentAtNode(document.querySelector("#app"));
+        };
+
+        // 组件即将挂载的钩子(后面版本废弃)
+        componentWillMount() {
+          console.log("componentWillMount");
+        }
+
+        // 组件挂载完成的钩子
+        componentDidMount() {
+          console.log("componentDidMount");
+        }
+
+        // 组件即将更新的阀门,通过返回true或false来判断是否进行后面的生命周期
+        shouldComponentUpdate() {
+          console.log("shouldComponentUpdate");
+          return true;
+        }
+
+        // 组件即将更新的钩子(后面版本废弃)
+        componentWillUpdate() {
+          console.log("componentWillUpdate");
+        }
+
+        // 组件即将卸载的钩子
+        componentWillUnmount() {
+          console.log("componentWillUnmount");
+        }
+
+        render() {
+          console.log("render");
+          return (
+            <div>
+              <Title isHello={this.state.isHello} />
+              <button onClick={this.changeTitle}>点击切换</button>
+              <button onClick={this.death}>点击卸载</button>
+            </div>
+          );
+        }
+      }
+
+      class Title extends React.Component {
+        static propTypes = {
+          // props类型限制
+          name: PropTypes.string,
+        };
+        static defaultProps = {
+          // props默认值
+          name: "React",
+        };
+
+        // 接受新的props的钩子
+        componentWillReceiveProps(props) {
+          console.log("componentWillReceiveProps", props);
+        }
+
+        render() {
+          const { isHello, name } = this.props;
+          return (
+            <div>
+              <h1 className="title">
+                <span style={{ fontSize: "80px" }}>
+                  {isHello ? "你好" : "哈哈"},{name}
+                </span>
+              </h1>
+            </div>
+          );
+        }
+      }
+
+      // ReactDOM.render(VDOM, document.getElementById("app"));
+      // ReactDOM.render(<Demo1 />, document.getElementById("app"));
+      // ReactDOM.render(<Demo2 />, document.getElementById("app"));
+      ReactDOM.render(<Wrap />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
