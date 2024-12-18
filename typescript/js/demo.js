@@ -1,5 +1,5 @@
 let num = 30;
-let title = 'whimzhu';
+let title = "whimzhu";
 function getNum(_num) {
     num = _num;
 }
@@ -8,17 +8,17 @@ console.log(num);
 const obj1 = {
     id: 1,
     num: 21,
-    name: 'jack',
-    city: 'wuhan'
+    name: "jack",
+    city: "wuhan",
 };
-const arr1 = [1, '1'];
+const arr1 = [1, "1"];
 const fun = function (argument1, argument2) {
     console.log(argument1 + argument2);
 };
-fun(1, '3');
+fun(1, "3");
 const p = {
-    name: 'jay',
-    age: 45
+    name: "jay",
+    age: 45,
 };
 // 完整函数定义
 const fun1 = function (argument1 = 1, argument2 = 1, ...arguments) {
@@ -38,5 +38,18 @@ var En1;
 })(En1 || (En1 = {}));
 console.log(En1.one);
 console.log(0 /* one */);
-console.log(En3.one);
+// console.log(En3.one);
 console.log(0 /* one */);
+// 枚举 end
+// 类
+class Father {
+    constructor(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+}
+class Son extends Father {
+}
+const son = new Son("jay");
+console.log(son.name);
