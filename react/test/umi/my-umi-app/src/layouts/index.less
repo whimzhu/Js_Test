@@ -1,0 +1,92 @@
+.navs {
+  ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  li {
+    margin-right: 1em;
+  }
+}
+
+.parent {
+  width: 500px;
+  height: 500px;
+  display: table-cell;
+  vertical-align: middle; /* 垂直居中 */
+  text-align: center; /* 水平居中 */
+}
+.child {
+  display: inline-block; /* 行内块元素 */
+}
+
+.parent1 {
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+.child1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px; /* 需明确子元素宽高 */
+  height: 100px;
+}
+
+.parent2 {
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+.child2 {
+  position: absolute;
+  top: calc(50% - 50px); /* 50% - 子元素高度的一半 */
+  left: calc(50% - 100px); /* 50% - 子元素宽度的一半 */
+  width: 200px;
+  height: 100px;
+}
+
+.flex-container {
+  display: flex;
+  height: 200px;
+  background-color: #f0f0f0;
+}
+
+.flex-item-1 {
+  // flex: 1;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 50%;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 5px;
+}
+
+.flex-item-2 {
+  // flex: 1;
+  flex-grow: 0;
+  flex-shrink: 2;
+  flex-basis: 50%;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 5px;
+}
+
+.flex-item-3 {
+  // flex: 1;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 50%;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 5px;
+}
